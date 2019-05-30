@@ -1,0 +1,1 @@
+# generic_serializer_and_view
