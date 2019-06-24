@@ -9,10 +9,23 @@ class CustomViewSet(mixins.CreateModelMixin, mixins.RetrieveModelMixin,
     pass
 
 
+# field_map = {
+#     'Todo': {
+#         'Name': 'title',
+#         'info': 'description'
+#     }
+# }
+
 field_map = {
     'Todo': {
-        'abc': 'title',
-        'info': 'description'
+        'Name': {
+            'field_name': 'title',
+            'field_type': 'str'
+        },
+        'info': {
+            'field_name': 'description',
+            'field_type': 'str'
+        }
     }
 }
 

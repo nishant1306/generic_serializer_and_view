@@ -23,10 +23,12 @@ class GeneralViewSet(CustomViewSet):
         data = get_field_map(m)
 
         for key, value in data.items():
-            od.update({key: serializers.CharField(source=value)})
+            od.update({key: serializers.CharField(source=value['field_name'])})
+            # od.update({key: serializers.CharField(source=value)})
 
         obj = GeneralSerializer._set_declared_fields(od)
         obj.Meta.model = m
 
+        # If we modify field map structure we've to change setting Meta fields logic here
         obj.Meta.fields = tuple(get_field_map(m).keys())
         return obj
