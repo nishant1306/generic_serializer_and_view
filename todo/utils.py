@@ -30,6 +30,12 @@ field_map = {
             'field_name': 'tag',
             'field_type': 'fk'
         }
+    },
+    'Tag': {
+        'tag': {
+            'field_name': 'name',
+            'field_type': 'str'
+        }
     }
 }
 
