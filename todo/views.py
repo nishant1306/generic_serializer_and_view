@@ -23,7 +23,10 @@ class GeneralViewSet(CustomViewSet):
         data = get_field_map(m)
 
         for key, value in data.items():
-            od.update({key: serializers.CharField(source=value['field_name'])})
+            if value['field_type'] == 'str':
+                od.update({key: serializers.CharField(source=value['field_name'])})
+            elif value['field_type'] == 'fk':
+                od.update({key: serializers.PrimaryKeyRelatedField(read_only=True)})
             # od.update({key: serializers.CharField(source=value)})
 
         obj = GeneralSerializer._set_declared_fields(od)

@@ -25,6 +25,10 @@ field_map = {
         'info': {
             'field_name': 'description',
             'field_type': 'str'
+        },
+        'tag': {
+            'field_name': 'tag',
+            'field_type': 'fk'
         }
     }
 }
