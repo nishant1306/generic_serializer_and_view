@@ -26,7 +26,7 @@ class GeneralViewSet(CustomViewSet):
             if value['field_type'] == 'str':
                 od.update({key: serializers.CharField(source=value['field_name'])})
             elif value['field_type'] == 'fk':
-                od.update({key: serializers.PrimaryKeyRelatedField(read_only=True)})
+                od.update({key: serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all())})
             # od.update({key: serializers.CharField(source=value)})
 
         obj = GeneralSerializer._set_declared_fields(od)
